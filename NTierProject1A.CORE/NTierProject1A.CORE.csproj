@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="Mapping\" />
-    <Folder Include="Methods\" />
   </ItemGroup>
 
 </Project>
