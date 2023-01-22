@@ -18,4 +18,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NTierProject1A.ENTITIES\NTierProject1A.ENTITIES.csproj" />
+  </ItemGroup>
+
 </Project>

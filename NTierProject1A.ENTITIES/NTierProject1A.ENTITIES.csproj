@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NTierProject1A.CORE\NTierProject1A.CORE.csproj" />
+  </ItemGroup>
+
 </Project>
