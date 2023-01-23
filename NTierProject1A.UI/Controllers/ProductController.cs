@@ -5,7 +5,6 @@ using NTierProject1A.ENTITIES.Entities;
 
 namespace NTierProject1A.UI.Controllers
 {
-    [Route("[controller]")]
     public class ProductController : Controller
     {
         ProductRepository _productRepository;
@@ -13,7 +12,7 @@ namespace NTierProject1A.UI.Controllers
         {
             _productRepository = new ProductRepository(context);
         }
-        [HttpGet("List")]
+        [HttpGet("[controller]/List")]
         public IActionResult List()
         {
             try
@@ -26,7 +25,7 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");    
             }
         }
-        [HttpGet("Get")]
+        [HttpGet("[controller]/Get")]
         public IActionResult Get(Guid id)
         {
             try
@@ -38,8 +37,8 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
-        [HttpPost("Add")]
-        public IActionResult Add(Product product) 
+        [HttpPost("[controller]/Add")]
+        public IActionResult Add([FromBody] Product product) 
         {
             try
             {
@@ -51,8 +50,8 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
-        [HttpPut("Update")]
-        public IActionResult Update(Product product)
+        [HttpPut("[controller]/Update")]
+        public IActionResult Update([FromBody] Product product)
         {
             try
             {
@@ -65,8 +64,8 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
-        [HttpDelete("Delete")]
-        public IActionResult Delete(Product product)
+        [HttpDelete("[controller]/Delete")]
+        public IActionResult Delete([FromBody] Product product)
         {
             try
             {
