@@ -15,7 +15,7 @@ namespace NTierProject1A.CORE.Entity
         public CoreEntity()
         {
             Status = Status.None;
-            CreatedDate= DateTime.Now.ToUniversalTime();//"Cannot write DateTime with Kind=Local to PostgreSQL type 'timestamp with time zone', only UTC is supported." hatasını çözmek için kullanıldı.
+            CreatedDate= DateTime.Now.ToUniversalTime();//"Cannot write DateTime with Kind=Local to PostgreSQL type 'timestamp with time zone', only UTC is supported." hatasını çözmek için kullanıldı.Internet tten UTC yi DateTime a çeviren site bul ordan çevirme yap.
             CreatedADUserName = WindowsIdentity.GetCurrent().Name;
             CreatedComputerName = Environment.MachineName;
             CreatedIp = networkFunctions.GetLocalIpAddress();

@@ -12,8 +12,7 @@ namespace NTierProject1A.UI.Controllers
         {
             _categoryRepository = new CategoryRepository(context);
         }
-        [Route("[controller]")]
-        [HttpGet("List")]
+        [HttpGet("[controller]/List")]
         public IActionResult List()
         {
             try
@@ -46,13 +45,12 @@ namespace NTierProject1A.UI.Controllers
                 _categoryRepository.Add(category);
                 return NoContent();
             }
-            catch 
+            catch
             {
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
-        [Route("[controller]")]
-        [HttpPut("Update")]
+        [HttpPut("[controller]/Update")]
         public IActionResult Update([FromBody] Category category)
         {
             try
@@ -66,8 +64,7 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
-        [Route("[controller]")]
-        [HttpDelete("Delete")]
+        [HttpDelete("[controller]/Delete")]
         public IActionResult Delete([FromBody] Category category)
         {
             try
