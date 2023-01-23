@@ -5,7 +5,6 @@ using NTierProject1A.ENTITIES.Entities;
 
 namespace NTierProject1A.UI.Controllers
 {
-    //[Route("[controller]")]
     public class CategoryController : Controller
     {
         CategoryRepository _categoryRepository;
@@ -13,6 +12,7 @@ namespace NTierProject1A.UI.Controllers
         {
             _categoryRepository = new CategoryRepository(context);
         }
+        [Route("[controller]")]
         [HttpGet("List")]
         public IActionResult List()
         {
@@ -26,7 +26,7 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
-        [HttpGet("Get")]
+        [HttpGet("[controller]/Get")]
         public IActionResult Get(Guid id)
         {
             try
@@ -38,8 +38,8 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
-        [HttpPost("Add")]
-        public IActionResult Add(Category category)
+        [HttpPost("[controller]/Add")]
+        public IActionResult Add([FromBody] Category category)
         {
             try
             {
@@ -51,8 +51,9 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
+        [Route("[controller]")]
         [HttpPut("Update")]
-        public IActionResult Update(Category category)
+        public IActionResult Update([FromBody] Category category)
         {
             try
             {
@@ -65,8 +66,9 @@ namespace NTierProject1A.UI.Controllers
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
         }
+        [Route("[controller]")]
         [HttpDelete("Delete")]
-        public IActionResult Delete(Category category)
+        public IActionResult Delete([FromBody] Category category)
         {
             try
             {
