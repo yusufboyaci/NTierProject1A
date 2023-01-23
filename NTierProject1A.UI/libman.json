@@ -9,6 +9,10 @@
     {
       "library": "axios@1.2.3",
       "destination": "wwwroot/lib/axios/"
+    },
+    {
+      "library": "font-awesome@6.2.1",
+      "destination": "wwwroot/lib/font-awesome/"
     }
   ]
 }

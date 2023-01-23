@@ -14,8 +14,10 @@
             <tbody>
                 <tr v-for="category in list">
                     <td>{{ category.name }}</td>
+                    <td>
+                        <button v-on:click="deleteCategory(category)" type="button" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                    </td>
                 </tr>
-
             </tbody>
         </table>
     </div>
@@ -56,7 +58,7 @@
                 name: "",
                 list: []
             }
-        },   
+        },
         methods: {
             saveCategory() {
                 axios({
@@ -68,18 +70,28 @@
                 }).then(response => {
                     location.reload();
                 });
-            },
+            },//
             getCategories() {
                 axios.get('/Category/List').then(response => {
                     let array = response.data;
-                    for(let item in array){
+                    for (let item in array) {
                         this.list.push({
                             id: array[item].id,
                             name: array[item].name
                         })
                     }
                 });
-            }
+            },//
+            deleteCategory(category) {
+                axios.delete('/Category/Delete',{
+                    data:{
+                        id: category.id,
+                        name: category.name
+                    }
+                }).then((res) => {
+                    location.reload();
+                })
+            },//
         },
         beforeMount() {
             this.getCategories();
