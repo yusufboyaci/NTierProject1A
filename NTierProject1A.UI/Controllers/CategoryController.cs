@@ -5,7 +5,7 @@ using NTierProject1A.ENTITIES.Entities;
 
 namespace NTierProject1A.UI.Controllers
 {
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class CategoryController : Controller
     {
         CategoryRepository _categoryRepository;
@@ -60,7 +60,7 @@ namespace NTierProject1A.UI.Controllers
                 _categoryRepository.Activate(category.Id);
                 return NoContent();
             }
-            catch (Exception)
+            catch
             {
                 return BadRequest("Beklenmedik bir hata oluştu");
             }
@@ -73,7 +73,7 @@ namespace NTierProject1A.UI.Controllers
                 _categoryRepository.Remove(category);
                 return NoContent();
             }
-            catch (Exception)
+            catch
             {
                 return BadRequest("Beklenmedik bir hata oluştu");
             }

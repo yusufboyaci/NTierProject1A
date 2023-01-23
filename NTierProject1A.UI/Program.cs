@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using NTierProject1A.DATAACCESS.Context;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql("Server=localhost;Port=5432;Database=NTierProject1A;User Id=postgres;Password=123"));
 
 WebApplication app = builder.Build();
 
@@ -22,6 +26,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Category}/{action=Index}/{id?}");
 
 app.Run();
