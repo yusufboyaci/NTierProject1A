@@ -33,7 +33,7 @@ namespace NTierProject1A.DATAACCESS.Context
             List<EntityEntry> modifiedEntries = ChangeTracker.Entries().Where(x => x.State == EntityState.Added || x.State == EntityState.Modified).ToList();
             string identity = WindowsIdentity.GetCurrent().Name;
             string computerName = Environment.MachineName;
-            DateTime dateTime = DateTime.Now;
+            DateTime dateTime = DateTime.Now.ToUniversalTime();//"Cannot write DateTime with Kind=Local to PostgreSQL type 'timestamp with time zone', only UTC is supported." hatasını çözmek için kullanıldı.
             string user = Environment.UserName;
             string ip = networkFunctions.GetLocalIpAddress();
 
