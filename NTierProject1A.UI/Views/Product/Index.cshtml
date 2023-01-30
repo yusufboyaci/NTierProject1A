@@ -154,8 +154,6 @@
                 });
             },//
             saveProduct() {
-                console.log(this.selected);
-                alert()
                 axios.post('/Product/Add', {
                     name: this.name,
                     description: this.description,
