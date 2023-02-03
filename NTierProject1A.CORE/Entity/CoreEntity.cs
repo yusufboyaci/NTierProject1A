@@ -19,7 +19,7 @@ namespace NTierProject1A.CORE.Entity
             CreatedADUserName = WindowsIdentity.GetCurrent().Name;
             CreatedComputerName = Environment.MachineName;
             CreatedIp = networkFunctions.GetLocalIpAddress();
-            CreatedBy = Environment.MachineName;
+            CreatedBy = Environment.UserName;
         }
         public Guid Id { get; set; }
         public Guid? MasterId { get; set; }
