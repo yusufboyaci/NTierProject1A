@@ -2,7 +2,13 @@
     ViewData["Title"] = "Index";
 }
 <div id="app">
-
+    <div class="row">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control m-2" v-model="searchText" placeholder="Ara" />
+        </div>
+    </div>
     <div class="table-responsive">
 
         <table class="table table-primary table-striped table-hover table-bordered">
@@ -13,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="category in list">
+                <tr v-for="category in displayedPosts">
                     <td>{{ category.name }}</td>
                     <td>
                         <button v-on:click="deleteCategory(category)" type="button" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
@@ -87,7 +93,8 @@
             return {
                 id: "",
                 name: "",
-                list: []
+                list: [],
+                searchText: ""
             }
         },
         methods: {
@@ -139,5 +146,10 @@
         beforeMount() {
             this.getCategories();
         },
+        computed: {
+            displayedPosts() {
+                return this.list.filter(x => x.name.match(this.searchText));
+            }
+        }
     }).mount("#app");
 </script>
